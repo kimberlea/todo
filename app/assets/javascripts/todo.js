@@ -13,6 +13,7 @@ function addNewList() {
     data: {title: new_title},
     success: function (resp) {
       updatePage([".lists-rows"]);
+      $("input.lists-new-input").val("");
     }
   })
 }

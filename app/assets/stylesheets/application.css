@@ -120,8 +120,9 @@ h1, h2, h3, h4 {
 .list-header h1 {
   color: #EBD7D7;
   text-align: center;
-  font-size: 80px;
+  font-size: 40px;
   padding: 50px 0px 25px 0px;
+  margin: 0px;
 }
 
 
