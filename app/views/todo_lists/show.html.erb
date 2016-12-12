@@ -3,7 +3,7 @@
   <h1><%= @list.title %></h1>
 </div>
 
-<div class="list-content">
+<div class="list-content content-panel">
   <div class="new-todo">
     <input type="text" class="items-new-input" placeholder="What needs to be done?" onkeyup="handleNewItemTyping();"/>
     <input type="hidden" name="list_id" value="<%= @list.id %>"/>

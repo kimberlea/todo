@@ -5,6 +5,7 @@
   <link rel="stylesheet" media="all" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" media="all" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
   <%= javascript_include_tag 'application' %>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <%= csrf_meta_tags %>
@@ -17,7 +18,9 @@
       <%= yield %>
     </div>
     <div class="list-footer">
-      <div>Created by Kimberlea</div>
+      <a href="/">Home</a>
+      |
+      <span>Created by Kimberlea</span>
     </div>
   </div>
 
