@@ -14,6 +14,12 @@ function addNewList() {
     success: function (resp) {
       updatePage([".lists-rows"]);
       $("input.lists-new-input").val("");
+    },
+    error: function(resp) {
+      $.alert({
+        title: "List save error.",
+        content: resp.error
+      });
     }
   })
 }
@@ -80,8 +86,15 @@ function addNewItem() {
     success: function (resp) {
       updatePage([".item-rows"]);
       $("input.items-new-input").val("");
+    },
+    error: function(resp) {
+      $.alert({
+        title: "Item save error.",
+        content: resp.error
+      });
     }
   })
+
 }
 
 function editItem(id) {
@@ -159,7 +172,22 @@ function handleNewItemTyping() {
 function apiRequest(opts) {
   opts.dataType = opts.dataType || 'json';
   opts.method = opts.method || 'POST';
-  $.ajax(opts);
+
+  $.ajax({
+    url: opts.url,
+    dataType: opts.dataType,
+    method: opts.method,
+    success: opts.success,
+    data: opts.data,
+    error: function(xhr) {
+      try {
+        resp = JSON.parse(xhr.responseText);
+      } catch (e) {
+        resp = {success: false, error: "An error occurred."};
+      }
+      opts.error(resp);
+    }
+  });
 }
 
 function updatePage(element_classes, opts) {

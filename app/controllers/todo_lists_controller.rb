@@ -29,7 +29,7 @@ class TodoListsController < ApplicationController
     @list.title = params[:title]
     saved = @list.save
     response = {success: saved, data: @list.to_api}
-    render :json => response
+    render_result(response)
   end
 
   def delete

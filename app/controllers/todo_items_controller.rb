@@ -20,13 +20,13 @@ class TodoItemsController < ApplicationController
   def save
     @item ||= TodoItem.new
     @item.is_completed ||= false
-    
+
     @item.title = params[:title] if params.key?(:title)
     @item.list = TodoList.find(params[:list_id]) if params.key?(:list_id)
     @item.is_completed = params[:is_completed] == "true" if params.key?(:is_completed)
     saved = @item.save
-    response = {success: true, data: @item.to_api}
-    render :json => response
+    response = {success: saved, data: @item.to_api}
+    render_result(response)
   end
 
   def delete
