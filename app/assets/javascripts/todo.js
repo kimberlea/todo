@@ -59,6 +59,19 @@ function saveEditList(id) {
   })
 }
 
+function promptDeleteList(id) {
+  $.confirm({
+    title: "Delete this list?",
+    content: "Are you sure you want to delete this list? This can't be undone.",
+    buttons: {
+      confirm: function() {
+        deleteList(id);
+      },
+      cancel: function() {}
+    }
+  });
+}
+
 function deleteList(id) {
   apiRequest({
     url: "/list",

@@ -14,7 +14,7 @@
 
     <% @items.each do |item| %>
 
-    <div class="item-row row item-row-<%= item.id %>">
+    <div class="item-row row item-row-<%= item.id %> <%= "item-row-completed" if item.is_completed %>">
 
       <div class="item-check">
         <input type="checkbox" name="is_completed" <%= item.is_completed ? "checked=true" : "" %> onclick="changeItemCompleted(<%= item.id %>)"/>
