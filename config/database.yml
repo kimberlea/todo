@@ -28,3 +28,7 @@ test:
 
 production:
   <<: *default
+  database: todo-production
+  username: web
+  password: pancakes
+  host: localhost
