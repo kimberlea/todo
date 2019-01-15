@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   post "/item" => "todo_items#save"
   delete "/item" => "todo_items#delete"
 
+  namespace :api do
+    get "/lists" => "todo_lists#index"
+    post "/list" => "todo_lists#save"
+    delete "/list" => "todo_lists#delete"
+  end
+
   root 'todo_lists#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
